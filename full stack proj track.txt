@@ -1,0 +1,339 @@
+1. HTML,CSS
+
+<!--sign up:-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Create Account</h2>
+
+    <form action="signin.html">
+
+        <label>Username:</label>
+        <input type="text" required>
+
+        <label>Email:</label>
+        <input type="email" required>
+
+        <label>Password:</label>
+        <input type="password" required>
+
+        <button type="submit">Sign Up</button>
+
+    </form>
+
+    <p>
+        Already have an account?
+        <a href="signin.html">Sign In</a>
+    </p>
+
+</div>
+
+</body>
+</html>
+
+<!--sign in: -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signin</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Sign In</h2>
+
+    <form action="home.html">
+
+        <label>Username:</label>
+        <input type="text" required>
+
+        <label>Password:</label>
+        <input type="password" required>
+
+        <button type="submit">Sign In</button>
+
+    </form>
+
+    <p>
+        Don't have an account?
+        <a href="signup.html">Sign Up</a>
+    </p>
+
+</div>
+
+</body>
+</html>
+
+<!-- home:-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="navbar">
+    <a href="home.html">Home</a>
+    <a href="signin.html">Signin</a>
+    <a href="signup.html">Signup</a>
+</div>
+
+<div class="container">
+
+    <h1>Welcome</h1>
+
+    <p>
+        You have successfully signed in.
+    </p>
+
+</div>
+
+<div class="footer">
+    © 2026 My Website
+</div>
+
+</body>
+</html>
+
+<!-- css:-->
+
+body {
+    background-color: #e3e6df;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 350px;
+    margin: 80px auto;
+    background: rgb(255, 255, 255);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+}
+
+h1, h2 {
+    text-align: center;
+    color: #333;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+p {
+    text-align: center;
+    margin-top: 15px;
+}
+
+a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.navbar {
+    background-color: #333;
+    padding: 15px;
+    text-align: center;
+}
+
+.navbar a {
+    color: white;
+    margin: 0 15px;
+}
+
+.footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+	-*-*-*-
+
+
+2. JS
+
+[--sign up:--]
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Signup</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Signup</h2>
+
+    <input type="text" id="signupUsername" placeholder="Username">
+
+    <input type="email" id="signupEmail" placeholder="Email">
+
+    <input type="password" id="signupPassword" placeholder="Password">
+
+    <button onclick="signup()">Sign Up</button>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
+
+<!--sign in:-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Signin</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Signin</h2>
+
+    <input type="text" id="signinUsername" placeholder="Username">
+
+    <input type="password" id="signinPassword" placeholder="Password">
+
+    <button onclick="signin()">Sign In</button>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
+
+<!--home:-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Welcome Home</h1>
+
+    <p>You have logged in successfully.</p>
+
+</div>
+
+</body>
+</html>
+
+<!--JS:-->
+
+// SIGNUP
+
+function signup() {
+
+    let username = document.getElementById("signupUsername").value;
+    let email = document.getElementById("signupEmail").value;
+    let password = document.getElementById("signupPassword").value;
+
+    // Store data in localStorage
+    localStorage.setItem("username", username);
+    localStorage.setItem("email", email);
+    localStorage.setItem("password", password);
+
+    alert("Signup Successful!");
+
+    // Go to signin page
+    window.location.href = "signin.html";
+}
+
+
+
+// SIGNIN
+
+function signin() {
+
+    let username = document.getElementById("signinUsername").value;
+    let password = document.getElementById("signinPassword").value;
+
+    // Get stored data
+    let storedUsername = localStorage.getItem("username");
+    let storedPassword = localStorage.getItem("password");
+
+    // Check login
+    if (username === storedUsername && password === storedPassword) {
+
+        alert("Login Successful!");
+
+        window.location.href = "home.html";
+
+    } else {
+
+        alert("Invalid Username or Password");
+
+    }
+}
+
+
+<!--CSS:--> same as above..
+
+    -*-*-*-*-*-
+    
